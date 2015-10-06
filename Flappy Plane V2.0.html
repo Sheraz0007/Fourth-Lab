@@ -1,0 +1,78 @@
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <title>Flappy Plane</title>
+  
+      <script type="text/javascript">
+  
+              function leftArrowPressed() {
+              var element = document.getElementById("image1");
+              element.style.left = parseInt(element.style.left) - 5 + 'px';
+              
+              }
+  
+              function rightArrowPressed() {
+              var element = document.getElementById("image1");
+              element.style.left = parseInt(element.style.left) + 5 + 'px';
+  
+              }
+  
+              function upArrowPressed() {
+              var element = document.getElementById("image1");
+              element.style.top = parseInt(element.style.top) - 5 + 'px';
+              }
+  
+              function downArrowPressed() {
+              var element = document.getElementById("image1");
+              element.style.top = parseInt(element.style.top) + 5 + 'px';
+              }
+  
+              function moveSelection(evt) {
+                  switch (evt.keyCode) {
+                      case 37:
+                      leftArrowPressed();
+                      break;
+                      case 39:
+                      rightArrowPressed();
+                      break;
+                      case 38:
+                      upArrowPressed();
+                      break;
+                      case 40:
+                      downArrowPressed();
+                      break;
+                      }
+                  };
+  
+          function docReady()
+          {
+            
+            window.addEventListener('keydown', moveSelection);
+          }
+		  
+		  function isCollide(plane, b) {
+    return !(
+        ((a.y + a.height) < (b.y)) ||
+        (a.y > (b.y + b.height)) ||
+        ((a.x + a.width) < b.x) ||
+        (a.x > (b.x + b.width))
+    );
+}
+  
+    </script>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+  </head>
+  
+  <body onload="docReady()" onkeydown="" onkeyup="">
+  <div class="animate-area">
+  	<div id="shark1"></div>
+  		<div id="shark2"></div>
+  			<div id="shark3"></div>
+  				<div id="shark4"></div>
+  <div id="#plane">
+    <img id="image1" src="cartoon-plane-54049.png" style="position:absolute;left:0; top:0;" height="120" width="120">
+    </div>
+  </div>
+</body>
+</html>
