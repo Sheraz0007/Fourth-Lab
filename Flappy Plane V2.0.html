@@ -5,6 +5,26 @@
    <title>Flappy Plane</title>
   
       <script type="text/javascript">
+var vari=setInterval(function(){
+var shark1 = document.getElementById("shark1");
+var plane= document.getElementById("image1");
+	  var shark2 = document.getElementById("shark2");
+					 var shark1_box = { top: 0 ,bottom:0, left:0, right:0 };
+					 var shark2_box = { top: 0 ,bottom:0, left:0, right:0 };
+					 var plane_box = { top: 0 , bottom:0, left:0, right:0 };
+                     shark1_box = shark1.getBoundingClientRect();
+					 shark2_box = shark2.getBoundingClientRect();
+					 plane_box = plane.getBoundingClientRect();
+					 
+					 if (shark1_box.top > plane_box.top && shark1_box.bottom < plane_box.bottom && shark1_box.left < plane_box.right){
+					 document.getElementById("gameover").style.display = "block";
+					 }
+					 if (shark2_box.top > plane_box.top && shark2_box.bottom < plane_box.bottom && shark2_box.left < plane_box.right){
+					  document.getElementById("gameover").style.display ="block";
+					 }
+					 
+		},33);	  
+	  
   
               function leftArrowPressed() {
               var element = document.getElementById("image1");
@@ -51,28 +71,24 @@
             window.addEventListener('keydown', moveSelection);
           }
 		  
-		  function isCollide(plane, b) {
-    return !(
-        ((a.y + a.height) < (b.y)) ||
-        (a.y > (b.y + b.height)) ||
-        ((a.x + a.width) < b.x) ||
-        (a.x > (b.x + b.width))
-    );
-}
+
   
     </script>
     <link type="text/css" rel="stylesheet" href="style.css" />
   </head>
   
   <body onload="docReady()" onkeydown="" onkeyup="">
-  <div class="animate-area">
+  <div id="gameover" style="display:none; " style="z-index:10000;">
+          <img src="gameover.png" style="max-height:786px; max-width:1366px;" />
+      </div>
+  <div id="animate-area">
   	<div id="shark1"></div>
   		<div id="shark2"></div>
-  			<div id="shark3"></div>
-  				<div id="shark4"></div>
-  <div id="#plane">
-    <img id="image1" src="cartoon-plane-54049.png" style="position:absolute;left:0; top:0;" height="120" width="120">
+  			
+  <div id="plane">
+    <img id="image1" src="cartoon-plane-54049.png" style="position:absolute;left:0; top:0;" height="100" width="200">
     </div>
+
   </div>
 </body>
 </html>
